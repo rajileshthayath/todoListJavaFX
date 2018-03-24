@@ -1,0 +1,79 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
+<BorderPane fx:id="mainBoarderPane" fx:controller="com.rthayath.todo.Controller"
+            xmlns:fx="http://javafx.com/fxml" stylesheets="@style.css">
+    <left>
+        <ListView fx:id="todoListview" onKeyPressed="#handleOnKeyPressed">
+
+        </ListView>
+    </left>
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu fx:id="firstMenu" text="File">
+                    <items>
+                        <MenuItem text="New.." onAction="#showNewDialog"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Exit" onAction="#handleExitApp"/>
+                    </items>
+                </Menu>
+            </MenuBar>
+            <ToolBar>
+                <HBox alignment="CENTER">
+                    <Button onAction="#showNewDialog">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@/toolbarButtonGraphics/general/New24.gif"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <ToggleButton fx:id="todayToggleButton" text="Todays items" onAction="#filterTodaysItems">
+                        <tooltip>
+                            <Tooltip text="Enabled, displays items for the day."/>
+                        </tooltip>
+                    </ToggleButton>
+                    <Button fx:id="test_css_btn" text="test css"/>
+                    <Button fx:id="fileChooser" text="Open file" onAction="#openFileChooser"/>
+                </HBox>
+            </ToolBar>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox>
+            <TextArea fx:id="itemDetailsTextArea" VBox.vgrow="ALWAYS" wrapText="true"/>
+
+                <HBox>
+                    <Label text="Due ">
+
+                    </Label>
+
+                    <Label fx:id="deadLineLabel">
+
+                    </Label>
+
+                </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
